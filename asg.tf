@@ -35,19 +35,6 @@ module "load_avg_demo_asg_01" {
     "GroupTotalCapacity",
     "GroupTotalInstances"]
 
-  instance_refresh = {
-    strategy = "Rolling"
-    preferences = {
-      checkpoint_delay             = 600
-      checkpoint_percentages       = [35, 70, 100]
-      instance_warmup              = 300
-      min_healthy_percentage       = 50
-      auto_rollback                = true
-      scale_in_protected_instances = "Refresh"
-      standby_instances            = "Terminate"
-    }
-    triggers = ["tag"]
-  }
   termination_policies      = ["OldestLaunchTemplate"]
   security_groups = [module.load_avg_demo_asg_sg_01.security_group_id]
 
