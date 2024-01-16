@@ -8,7 +8,6 @@ module "load_avg_demo_asg_kp_01" {
 }
 
 module "load_avg_demo_asg_01" {
-  #source = "git::https://gitlab.serviceurl.in/lentra/cloud-ops/aws/terraform/modules-prod.git//asg"
    source  = "terraform-aws-modules/autoscaling/aws"
    version = "~> 7.3.0"
   # AUTOSCALING GROUP
