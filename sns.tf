@@ -1,5 +1,5 @@
 locals{
-    email_notification = ["satheesh@lentra.ai"]
+    email_notification = [""]           #Enter Email ID in which you want to receive the notification
 }
 
 resource "aws_sns_topic" "load_avg_demo_asg_sns_01"{

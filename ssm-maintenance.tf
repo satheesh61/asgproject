@@ -34,7 +34,7 @@ DOC
 
 resource "aws_ssm_maintenance_window" "load_avg_demo_asg_ref_ssm_mw_01" {
   name     = "${local.asg_name}-ref-ssm-mw-01"
-  schedule = "cron(0 0,19 8 ? * * *)"
+  schedule = "cron(0 0,00 0 ? * * *)"
   duration = 4
   cutoff   = 2
   allow_unassociated_targets = true

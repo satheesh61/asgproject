@@ -43,7 +43,6 @@ module "load_avg_demo_asg_01" {
   update_default_version      = true
   launch_template_version = "$Latest"
   image_id          = data.aws_ami.amazon_linux.id
-  #image_id          = "ami-02e94b011299ef128"
   instance_type     = var.instance_type
   key_name          = module.load_avg_demo_asg_kp_01.key_pair_name
   iam_instance_profile_arn = aws_iam_instance_profile.ec2_access_instance_profile.arn
@@ -106,7 +105,8 @@ module "load_avg_demo_asg_01" {
 }
 
 module "load_avg_demo_asg_sg_01" {
-  source = "git::https://gitlab.serviceurl.in/lentra/cloud-ops/aws/terraform/modules-prod.git//security-group"
+  source = "terraform-aws-modules/security-group/aws"
+  version = "~>4.15.0"
   name   = "${local.asg_name}-sg-01"
   vpc_id = module.load_avg_demo_vpc.vpc_id
   ingress_with_source_security_group_id = [
